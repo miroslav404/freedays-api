@@ -1,24 +1,25 @@
-#Freedays - API
+# Freedays - API
 
-##Setup
+## Setup
 1. Download and install mySQL
 2. Create table:
+ - `sudo mysql --password`
  - `mysql> create database db_example; -- Create the new database`
  - `mysql> create user 'dbuser'@'localhost' identified by 'ChooseYourPassword'; -- Creates the user`
  - `mysql> grant all on db_example.* to 'dbuser'@'localhost'; -- Gives all the privileges to the new user on the newly created database`
 3. Update **src/main/resources/application.properties** with newly created db info 
 
-##Run
+## Run
 enter in terminal **./gradlew bootRun**
 
-###Available Requests
-#####GET all companies
+## Available Requests
+<br />**GET all companies**<br />
 curl -i -H 'Accept: application/json' http://localhost:8080/api/companies
-#####CREATE company
+<br />**CREATE company**<br />
 curl -i -H "Content-Type: application/json" -X POST -d '{"name": "Undabot"}' http://localhost:8080/api/companies
-#####GET company by id
+<br />**GET company by id**<br />
 curl -i -H 'Accept: application/json' http://localhost:8080/api/companies/{id}
-#####UPDATE company by id
+<br />**UPDATE company by id**<br />
 curl -i -H "Content-Type: application/json" -X PUT -d '{"name": "Learning Spring Boot"}' http://localhost:8080/api/companies/{id}
-#####DELETE company by id
+<br />**DELETE company by id**<br />
 curl -i -X DELETE http://localhost:8080/api/companies/{id}
